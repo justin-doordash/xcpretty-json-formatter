@@ -62,8 +62,8 @@ class JSONFormatter < XCPretty::Simple
 
   def format_file_missing_error(reason, file_path)
     @file_missing_errors << {
-      file_path: file_path,
-      reason: reason
+      file_path: file_path.to_json,
+      reason: reason.to_json
     }
     write_to_file_if_needed
     super
@@ -71,9 +71,9 @@ class JSONFormatter < XCPretty::Simple
 
   def format_undefined_symbols(message, symbol, reference)
     @undefined_symbols_errors = {
-      message: message,
-      symbol: symbol,
-      reference: reference
+      message: message.to_json,
+      symbol: symbol.to_json,
+      reference: reference.to_json
     }
     write_to_file_if_needed
     super
@@ -81,8 +81,8 @@ class JSONFormatter < XCPretty::Simple
 
   def format_duplicate_symbols(message, file_paths)
     @duplicate_symbols_errors = {
-      message: message,
-      file_paths: file_paths
+      message: message.to_json,
+      file_paths: file_paths.to_json
     }
     write_to_file_if_needed
     super
