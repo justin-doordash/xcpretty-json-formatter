@@ -35,7 +35,7 @@ class JSONFormatter < XCPretty::Simple
       file_name: file_name,
       file_path: file_path,
       reason: reason,
-      line: line,
+      line: "line",
       cursor: cursor
     }
     write_to_file_if_needed
@@ -53,7 +53,7 @@ class JSONFormatter < XCPretty::Simple
       file_name: file,
       file_path: file_path,
       reason: reason,
-      line: line,
+      line: "line",
       cursor: cursor
     }
     write_to_file_if_needed
