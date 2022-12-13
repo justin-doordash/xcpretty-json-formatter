@@ -32,11 +32,11 @@ class JSONFormatter < XCPretty::Simple
 
   def format_compile_warning(file_name, file_path, reason, line, cursor)
     @compile_warnings << {
-      file_name: file_name,
-      file_path: file_path,
-      reason: reason,
-      line: "line",
-      cursor: cursor
+      file_name: file_name.to_json,
+      file_path: file_path.to_json,
+      reason: reason.to_json,
+      line: line.to_json,
+      cursor: cursor.to_json
     }
     write_to_file_if_needed
     super
@@ -50,11 +50,11 @@ class JSONFormatter < XCPretty::Simple
 
   def format_compile_error(file, file_path, reason, line, cursor)
     @compile_errors << {
-      file_name: file,
-      file_path: file_path,
-      reason: reason,
-      line: "line",
-      cursor: cursor
+      file_name: file.to_json,
+      file_path: file_path.to_json,
+      reason: reason.to_json,
+      line: line.to_json,
+      cursor: cursor.to_json
     }
     write_to_file_if_needed
     super
